@@ -20,9 +20,9 @@ function scanUrl() {
         return;
     }
 
-    // 1. IP & Tunnel Detection (Ninte Logic)
+    // 1. IP & Tunnel Detection
     const ipPattern = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
-    const tunnels = ['ngrok', 'localtunnel', 'localhost.run', 'trycloudflare'];
+    const tunnels = ['ngrok', 'localtunnel', 'localhost.run', 'trycloudflare', 'serveo.net'];
 
     if (ipPattern.test(host)) {
         riskScore += 95;
@@ -33,7 +33,7 @@ function scanUrl() {
         detections.push("Hacker Tunnel/Localhost 🚩");
     }
 
-    // 2. Phishing Logic (Amazon/Flipkart)
+    // 2. Phishing Logic
     const brands = ['amazon', 'flipkart', 'meesho', 'myntra', 'iphone'];
     brands.forEach(brand => {
         if (linkInput.toLowerCase().includes(brand) && !host.endsWith('.com') && !host.endsWith('.in')) {
@@ -42,12 +42,12 @@ function scanUrl() {
         }
     });
 
-    // 3. Result Display with 1930 Call Feature
+    // 3. Result Display Logic
     if (riskScore >= 50) {
         resultDiv.innerHTML = `
             <div class="danger-box" style="background: #ff3b30; color: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center;">
                 <h3 style="margin: 0;">🚨 DANGER DETECTED!</h3>
-                <p style="margin: 10px 0;">Risk Score: ${riskScore}% | Reasons: ${detections.join(", ")}</p>
+                <p style="margin: 10px 0;">Risk Score: ${riskScore}% <br>Reasons: ${detections.join(", ")}</p>
                 <button onclick="window.location.href='tel:1930'" style="background: white; color: #ff3b30; border: none; padding: 10px; border-radius: 5px; font-weight: bold; width: 100%; cursor: pointer;">
                     📞 CALL 1930 & REPORT
                 </button>
@@ -57,7 +57,7 @@ function scanUrl() {
         resultDiv.innerHTML = `
             <div style="background: #4CAF50; color: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center;">
                 <h3 style="margin: 0;">✅ SITE IS SAFE</h3>
-                <p style="margin: 5px 0;">Low Risk: ${riskScore}%</p>
+                <p style="margin: 5px 0;">Low Risk: ${riskScore}% <br>Dragon Shield Protection active 🐉</p>
             </div>
         `;
     }
