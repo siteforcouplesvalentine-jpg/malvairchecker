@@ -2,6 +2,7 @@ function scanUrl() {
     const linkInput = document.getElementById('urlInput').value;
     const resultDiv = document.getElementById('result');
     
+    // Check if input is empty
     if (!linkInput) {
         resultDiv.innerHTML = "<div style='color: yellow; padding: 10px;'>URL type cheyyu muthe! ⚠️</div>";
         return;
@@ -41,10 +42,10 @@ function scanUrl() {
         }
     });
 
-    // 3. Result Display with Call Feature
+    // 3. Result Display with 1930 Call Feature
     if (riskScore >= 50) {
         resultDiv.innerHTML = `
-            <div class="danger-box" style="background: #ff3b30; color: white; padding: 15px; border-radius: 8px; margin-top: 15px;">
+            <div class="danger-box" style="background: #ff3b30; color: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center;">
                 <h3 style="margin: 0;">🚨 DANGER DETECTED!</h3>
                 <p style="margin: 10px 0;">Risk Score: ${riskScore}% | Reasons: ${detections.join(", ")}</p>
                 <button onclick="window.location.href='tel:1930'" style="background: white; color: #ff3b30; border: none; padding: 10px; border-radius: 5px; font-weight: bold; width: 100%; cursor: pointer;">
@@ -54,11 +55,10 @@ function scanUrl() {
         `;
     } else {
         resultDiv.innerHTML = `
-            <div style="background: #4CAF50; color: white; padding: 15px; border-radius: 8px; margin-top: 15px;">
+            <div style="background: #4CAF50; color: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center;">
                 <h3 style="margin: 0;">✅ SITE IS SAFE</h3>
                 <p style="margin: 5px 0;">Low Risk: ${riskScore}%</p>
             </div>
         `;
     }
 }
-
