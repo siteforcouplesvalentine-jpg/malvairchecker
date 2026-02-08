@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Shield | Cyber Security</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        :root {
+            --dragon-green: #00ff88;
+            --dragon-dark: #0a0e14;
+            --neon-glow: 0 0 15px #00ff88;
+        }
+        body {
+            background-color: var(--dragon-dark);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--dragon-green);
+            box-shadow: var(--neon-glow);
+            width: 90%;
+            max-width: 550px;
+        }
+        h1 { color: var(--dragon-green); text-transform: uppercase; letter-spacing: 2px; }
+        input[type="text"] {
+            width: 85%;
+            padding: 15px;
+            border-radius: 30px;
+            background: #1a222c;
+            color: white;
+            border: 1px solid transparent;
+            outline: none;
+            margin-bottom: 15px;
+        }
+        .scan-btn {
+            background: var(--dragon-green);
+            color: black;
+            padding: 15px 40px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            font-weight: bold;
+        }
+        .footer { margin-top: 25px; font-size: 0.8rem; opacity: 0.6; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🐲 DRAGON SHIELD</h1>
+        <p>Protecting Our Nation from Phishing & Scams <br> 🇮🇳 <b>Digital India Security</b></p>
+        
+        <input type="text" id="urlInput" placeholder="Paste link here, Adam...">
+        <br>
+        <button class="scan-btn" onclick="checkLink()">SCAN WITH DRAGON 🐉</button>
+
+        <div id="result"></div>
+
+        <div class="footer">
+            Powered by Adam and his AI developed
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
